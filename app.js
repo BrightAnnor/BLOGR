@@ -1,6 +1,8 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const userRoute = require('./routes/userRoute')
+const userRoute = require('./routes/userRoute');
+const ejs = require('ejs')
+const expressLayouts = require('express-ejs-layouts');
 
 //configure dotenv
 dotenv.config();
@@ -11,8 +13,15 @@ const port = process.env.PORT || 5050;
 //server
 const app = express();
 
+//view
+app.set('view engine','ejs');
+app.use(expressLayouts);
+app.use(express.urlencoded({extended: false}));
+
+
 // middleWares
 app.use('/',userRoute);
+app.use(express.static('public'));
 
 
 

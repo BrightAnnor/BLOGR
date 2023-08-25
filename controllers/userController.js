@@ -1,5 +1,5 @@
 const home = (req,res)=>{
-    res.render();
+    res.render('pages/index');
 };
 const about = (req,res)=>{
     res.render();
