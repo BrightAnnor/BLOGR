@@ -1,5 +1,5 @@
 const express = require('express');
-const {home,blog,about,contact} = require('../controllers/userController');
+const {home,blog,about,contact,addBlog} = require('../controllers/userController');
 
 
 // server extension
@@ -9,6 +9,8 @@ app.get('/',home)
 app.get('/about',about)
 app.get('/blog',blog);
 app.get('/contact',contact);
+
+app.post('/blog',addBlog)
 
 
 

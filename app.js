@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 const userRoute = require('./routes/userRoute');
 const ejs = require('ejs')
 const expressLayouts = require('express-ejs-layouts');
+const sequelize = require('./database/dbConnect');
 
 //configure dotenv
 dotenv.config();
@@ -25,8 +26,19 @@ app.use(express.static('public'));
 
 
 
-//server listen
-app.listen(port,()=>{
-    console.log( `server runing on http://localhost:${port}`);
-});
+//server listeng
 
+
+
+const startServer = async ()=>{
+    try {
+        await sequelize.authenticate()
+        app.listen(port,()=>{
+            console.log( `server runing on http://localhost:${port}`);
+        });  
+    } catch (error) {
+        console.log(error)        
+    }
+};
+
+startServer()

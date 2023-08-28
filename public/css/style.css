@@ -554,7 +554,7 @@ button {
 .about_section {
     width: 100%;
     float: left;
-    background-image: url(../images/about-bg.png);
+    background-image: url(../imgs/about-bg.png);
     height: auto;
     background-size: 100%;
     background-repeat: no-repeat;
